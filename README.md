@@ -1,4 +1,5 @@
-🚀 React Random Quote Machine – a random quote generator built with React and Vite. It allows users to get inspiring quotes at the click of a button and share them on Twitter.
+🚀 React Random Quote Machine 
+ A random quote generator built with React and Vite. It allows users to get inspiring quotes at the click of a button and share them on Twitter.
 
 ✨ Features:
 	•	Generates random quotes
