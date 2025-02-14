@@ -1,8 +1,10 @@
-# React + Vite
+🚀 React Random Quote Machine – a random quote generator built with React and Vite. It allows users to get inspiring quotes at the click of a button and share them on Twitter.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+✨ Features:
+	•	Generates random quotes
+	•	Displays the author’s name
+	•	Button to fetch a new quote
+	•	Option to share quotes on Twitter
+	•	Responsive and stylish design with Tailwind CSS
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 Stack: React, Vite, Tailwind CSS, API (for fetching quotes).
