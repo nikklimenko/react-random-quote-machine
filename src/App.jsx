@@ -4,24 +4,27 @@ import QuoteBox from './components/QuoteBox'
 import quotes from './utils/quotes'
 
 function App() {
-	// const [count, setCount] = useState(0)
 	const [currentQuote, setCurrentQuote] = useState(quotes[0].text)
 	const [currentAuthor, setCurrentAuthor] = useState(quotes[0].author)
 
 	const onNewQuote = () => {
-		const randomIndex = Math.floor(Math.random() * quotes.length)
-		setCurrentQuote(quotes[randomIndex].text)
-		setCurrentAuthor(quotes[randomIndex].author)
+		let newIndex
+		do {
+			newIndex = Math.floor(Math.random() * quotes.length)
+		} while (quotes[newIndex].text === currentQuote)
+
+		setCurrentQuote(quotes[newIndex].text)
+		setCurrentAuthor(quotes[newIndex].author)
 	}
 
 	return (
-		<>
+		<div>
 			<QuoteBox
 				currentQuote={currentQuote}
 				currentAuthor={currentAuthor}
 				onNewQuote={onNewQuote}
 			/>
-		</>
+		</div>
 	)
 }
 

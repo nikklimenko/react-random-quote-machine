@@ -6,8 +6,8 @@ import QuoteText from './QuoteText'
 const QuoteBox = ({ onNewQuote, currentQuote, currentAuthor }) => {
 	return (
 		<div className='w-2xl min-h-48 mx-auto bg-amber-50 p-12' id='quote-box'>
-			<QuoteText />
-			<QuoteAuthor />
+			<QuoteText text={currentQuote} />
+			<QuoteAuthor currentAuthor={currentAuthor} />
 			<QuoteActions
 				onNewQuote={onNewQuote}
 				currentQuote={currentQuote}
