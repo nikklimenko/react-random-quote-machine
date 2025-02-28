@@ -1,27 +1,25 @@
-import { useState } from 'react'
 import './App.css'
 import QuoteBox from './components/QuoteBox'
-import quotes from './utils/quotes'
+import { useRandomQuote } from './utils/useRandomQuote'
 
 function App() {
-	const [currentQuote, setCurrentQuote] = useState(quotes[0].text)
-	const [currentAuthor, setCurrentAuthor] = useState(quotes[0].author)
+	const { data, isLoading, isError } = useRandomQuote()
 
-	const onNewQuote = () => {
-		let newIndex
-		do {
-			newIndex = Math.floor(Math.random() * quotes.length)
-		} while (quotes[newIndex].text === currentQuote)
+	const onNewQuote = () => {}
 
-		setCurrentQuote(quotes[newIndex].text)
-		setCurrentAuthor(quotes[newIndex].author)
+	if (isLoading) {
+		return <div>Loading...</div>
+	}
+
+	if (isError) {
+		return <div>Error fetching quotes</div>
 	}
 
 	return (
 		<div>
 			<QuoteBox
-				currentQuote={currentQuote}
-				currentAuthor={currentAuthor}
+				currentQuote={data[0].quote}
+				currentAuthor={data[0].author}
 				onNewQuote={onNewQuote}
 			/>
 		</div>
