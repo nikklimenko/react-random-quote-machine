@@ -1,11 +1,16 @@
+import { useQueryClient } from '@tanstack/react-query'
 import './App.css'
 import QuoteBox from './components/QuoteBox'
 import { useRandomQuote } from './utils/useRandomQuote'
 
 function App() {
+	const queryClient = useQueryClient()
+
 	const { data, isLoading, isError } = useRandomQuote()
 
-	const onNewQuote = () => {}
+	const onNewQuote = () => {
+		queryClient.invalidateQueries('quote')
+	}
 
 	if (isLoading) {
 		return <div>Loading...</div>
