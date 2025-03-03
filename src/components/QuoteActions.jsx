@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { PiTumblrLogoThin } from 'react-icons/pi'
 import { RiTwitterXLine } from 'react-icons/ri'
 
-function QuoteActions({ onNewQuote, currentQuote, currentAuthor }) {
+function QuoteActions({ onNewQuote, currentQuote, currentAuthor, color }) {
 	const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
 		`"${currentQuote}" - ${currentAuthor}`
 	)}`
@@ -20,8 +20,9 @@ function QuoteActions({ onNewQuote, currentQuote, currentAuthor }) {
 					href={tweetUrl}
 					target='_blank'
 					rel='noopener noreferrer'
-					className='bg-orange-500 h-10 w-10 mr-2 flex items-center justify-center transition-all duration-300 transform hover:opacity-90'
+					className='h-10 w-10 mr-2 flex items-center justify-center transition-all duration-500 transform hover:opacity-90'
 					id='tweet-quote'
+					style={{ backgroundColor: color }}
 				>
 					<RiTwitterXLine className='text-white text-2xl' />
 				</a>
@@ -29,16 +30,18 @@ function QuoteActions({ onNewQuote, currentQuote, currentAuthor }) {
 					href={tumblrUrl}
 					target='_blank'
 					rel='noopener noreferrer'
-					className='bg-orange-500 h-10 w-10 mr-2 flex items-center justify-center transition-all duration-300 transform hover:opacity-90'
+					className='h-10 w-10 mr-2 flex items-center justify-center transition-all duration-500 transform hover:opacity-90'
 					id='tumblr-quote'
+					style={{ backgroundColor: color }}
 				>
 					<PiTumblrLogoThin className='text-white text-2xl' />
 				</a>
 			</div>
 			<button
 				onClick={onNewQuote}
-				className='bg-orange-500 text-white px-4 py-2 rounded cursor-pointer transition-all duration-300 transform hover:opacity-90'
+				className='text-white px-4 py-2 rounded cursor-pointer transition-all duration-500 transform hover:opacity-90'
 				id='new-quote'
+				style={{ backgroundColor: color }}
 			>
 				New Quote
 			</button>
@@ -50,6 +53,7 @@ QuoteActions.propTypes = {
 	onNewQuote: PropTypes.func.isRequired,
 	currentQuote: PropTypes.string.isRequired,
 	currentAuthor: PropTypes.string.isRequired,
+	color: PropTypes.string.isRequired,
 }
 
 export default QuoteActions

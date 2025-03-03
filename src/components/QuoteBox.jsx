@@ -4,24 +4,32 @@ import QuoteActions from './QuoteActions'
 import QuoteAuthor from './QuoteAuthor'
 import QuoteText from './QuoteText'
 
-// eslint-disable-next-line react/prop-types
-const QuoteBox = ({ onNewQuote, currentQuote, currentAuthor, isFetching }) => {
-	if (isFetching) {
-		return (
-			<div className='w-2xl min-h-48 mx-auto bg-amber-50 p-12' id='quote-box'>
-				<GridLoader color='red' size={30} />
-			</div>
-		)
-	}
-
+const QuoteBox = ({
+	onNewQuote,
+	currentQuote,
+	currentAuthor,
+	isFetching,
+	color,
+}) => {
 	return (
 		<div className='w-2xl min-h-48 mx-auto bg-amber-50 p-12' id='quote-box'>
-			<QuoteText text={currentQuote} />
-			<QuoteAuthor currentAuthor={currentAuthor} />
+			{isFetching ? (
+				<GridLoader
+					className='m-5 transition-all duration-500 transform'
+					color={color}
+					size={20}
+				/>
+			) : (
+				<div>
+					<QuoteText text={currentQuote} color={color} />
+					<QuoteAuthor currentAuthor={currentAuthor} color={color} />
+				</div>
+			)}
 			<QuoteActions
 				onNewQuote={onNewQuote}
 				currentQuote={currentQuote}
 				currentAuthor={currentAuthor}
+				color={color}
 			/>
 		</div>
 	)
@@ -31,6 +39,8 @@ QuoteBox.propTypes = {
 	onNewQuote: PropTypes.func.isRequired,
 	currentQuote: PropTypes.string.isRequired,
 	currentAuthor: PropTypes.string.isRequired,
+	isFetching: PropTypes.boolean,
+	color: PropTypes.string.isRequired,
 }
 
 export default QuoteBox

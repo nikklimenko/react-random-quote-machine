@@ -1,16 +1,25 @@
 import { useQueryClient } from '@tanstack/react-query'
+import { useEffect, useState } from 'react'
 import './App.css'
 import QuoteBox from './components/QuoteBox'
+import { getRandomColor } from './utils/colors'
 import { useRandomQuote } from './utils/useRandomQuote'
 
 function App() {
 	const queryClient = useQueryClient()
-
+	const [color, setColor] = useState(getRandomColor())
 	const { data, isLoading, isError, isFetching } = useRandomQuote()
 
 	const onNewQuote = () => {
 		queryClient.invalidateQueries('quote')
+		let newColor = getRandomColor()
+		newColor === color ? (newColor = getRandomColor()) : setColor(newColor)
+		document.body.style.backgroundColor = color
 	}
+
+	useEffect(() => {
+		document.body.style.backgroundColor = color
+	}, [color])
 
 	if (isLoading) {
 		return <div>Loading...</div>
@@ -27,6 +36,7 @@ function App() {
 				currentAuthor={data[0].author}
 				onNewQuote={onNewQuote}
 				isFetching={isFetching}
+				color={color}
 			/>
 		</div>
 	)
