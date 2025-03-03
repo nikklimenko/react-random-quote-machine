@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import { useEffect } from 'react'
 
 const getData = async () => {
 	return await axios.get('https://api.api-ninjas.com/v1/quotes', {
@@ -16,14 +15,6 @@ export function useRandomQuote() {
 		queryFn: getData,
 		select: data => data.data,
 	})
-
-	useEffect(() => {
-		if (isSuccess) console.log('Data fetched successfully')
-	}, [isSuccess, data])
-
-	useEffect(() => {
-		if (isError) console.log('Error fetching data')
-	}, [isError, data])
 
 	return { data, isLoading, isSuccess, isError, isFetching }
 }
