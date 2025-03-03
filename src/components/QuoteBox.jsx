@@ -1,9 +1,19 @@
 import PropTypes from 'prop-types'
+import { GridLoader } from 'react-spinners'
 import QuoteActions from './QuoteActions'
 import QuoteAuthor from './QuoteAuthor'
 import QuoteText from './QuoteText'
 
-const QuoteBox = ({ onNewQuote, currentQuote, currentAuthor }) => {
+// eslint-disable-next-line react/prop-types
+const QuoteBox = ({ onNewQuote, currentQuote, currentAuthor, isFetching }) => {
+	if (isFetching) {
+		return (
+			<div className='w-2xl min-h-48 mx-auto bg-amber-50 p-12' id='quote-box'>
+				<GridLoader color='red' size={30} />
+			</div>
+		)
+	}
+
 	return (
 		<div className='w-2xl min-h-48 mx-auto bg-amber-50 p-12' id='quote-box'>
 			<QuoteText text={currentQuote} />

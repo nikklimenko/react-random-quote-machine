@@ -11,7 +11,7 @@ const getData = async () => {
 }
 
 export function useRandomQuote() {
-	const { data, isLoading, isSuccess, isError } = useQuery({
+	const { data, isLoading, isSuccess, isError, isFetching } = useQuery({
 		queryKey: ['quote'],
 		queryFn: getData,
 		select: data => data.data,
@@ -25,5 +25,5 @@ export function useRandomQuote() {
 		if (isError) console.log('Error fetching data')
 	}, [isError, data])
 
-	return { data, isLoading, isSuccess, isError }
+	return { data, isLoading, isSuccess, isError, isFetching }
 }

@@ -6,7 +6,7 @@ import { useRandomQuote } from './utils/useRandomQuote'
 function App() {
 	const queryClient = useQueryClient()
 
-	const { data, isLoading, isError } = useRandomQuote()
+	const { data, isLoading, isError, isFetching } = useRandomQuote()
 
 	const onNewQuote = () => {
 		queryClient.invalidateQueries('quote')
@@ -26,6 +26,7 @@ function App() {
 				currentQuote={data[0].quote}
 				currentAuthor={data[0].author}
 				onNewQuote={onNewQuote}
+				isFetching={isFetching}
 			/>
 		</div>
 	)
