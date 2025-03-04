@@ -5,6 +5,7 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
 	plugins: [react(), tailwindcss()],
+	base: '/react-random-quote-machine/',
 	server: {
 		port: 3000,
 	},
