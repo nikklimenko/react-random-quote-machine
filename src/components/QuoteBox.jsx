@@ -13,7 +13,7 @@ const QuoteBox = ({
 }) => {
 	return (
 		<div
-			className='w-full sm:w-2xl min-h-48 min-w-72 mx-auto bg-amber-50 p-6 md:p-12 rounded-lg shadow-lg text-center transition-all mt-4 sm:mt-0'
+			className='w-full sm:w-2xl min-h-48 mx-auto bg-amber-50 p-6 md:p-12 rounded-lg shadow-lg text-center transition-all mt-4 sm:mt-0'
 			id='quote-box'
 		>
 			{isFetching ? (
