@@ -23,15 +23,23 @@ function App() {
 	}, [color])
 
 	if (isLoading) {
-		return <div>Loading...</div>
+		return (
+			<div className='min-h-screen flex items-center justify-center text-white text-lg'>
+				Loading...
+			</div>
+		)
 	}
 
 	if (isError) {
-		return <div>Error fetching quotes</div>
+		return (
+			<div className='min-h-screen flex items-center justify-center text-red-500 text-lg'>
+				Error fetching quotes
+			</div>
+		)
 	}
 
 	return (
-		<div>
+		<div className='mt-4 min-h-screen flex flex-col items-center justify-center p-4'>
 			<QuoteBox
 				currentQuote={data[0].quote}
 				currentAuthor={data[0].author}
@@ -39,7 +47,7 @@ function App() {
 				isFetching={isFetching}
 				color={color}
 			/>
-			<QuoteFooterCopyright />
+			<QuoteFooterCopyright className='mt-4 text-sm text-gray-400' />
 		</div>
 	)
 }

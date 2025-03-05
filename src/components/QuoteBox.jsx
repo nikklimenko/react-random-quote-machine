@@ -12,7 +12,10 @@ const QuoteBox = ({
 	color,
 }) => {
 	return (
-		<div className='w-2xl min-h-48 mx-auto bg-amber-50 p-12' id='quote-box'>
+		<div
+			className='w-full sm:w-2xl min-h-48 min-w-72 mx-auto bg-amber-50 p-6 md:p-12 rounded-lg shadow-lg text-center transition-all mt-4 sm:mt-0'
+			id='quote-box'
+		>
 			{isFetching ? (
 				<GridLoader
 					className='m-5 transition-all duration-500 transform'
@@ -39,7 +42,7 @@ QuoteBox.propTypes = {
 	onNewQuote: PropTypes.func.isRequired,
 	currentQuote: PropTypes.string.isRequired,
 	currentAuthor: PropTypes.string.isRequired,
-	isFetching: PropTypes.boolean,
+	isFetching: PropTypes.bool,
 	color: PropTypes.string.isRequired,
 }
 

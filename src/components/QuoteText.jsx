@@ -4,12 +4,12 @@ import { FaQuoteLeft } from 'react-icons/fa'
 function QuoteText({ text, color }) {
 	return (
 		<div
-			className='text-3xl mr-2 transition-all duration-500 transform'
+			className='text-2xl sm:text-3xl mr-2 transition-all duration-500 transform'
 			id='quote-text'
 			style={{ color: color }}
 		>
 			<FaQuoteLeft
-				className='text-3xl mr-2 inline-block align-top'
+				className='text-2xl sm:text-3xl mr-2 inline-block align-top'
 				style={{ color: color }}
 			/>
 			{text}

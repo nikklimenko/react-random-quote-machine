@@ -14,13 +14,16 @@ function QuoteActions({ onNewQuote, currentQuote, currentAuthor, color }) {
 	)}&section=content&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button`
 
 	return (
-		<div className='flex justify-between' id='social-actions'>
-			<div className='flex'>
+		<div
+			className='flex flex-col-reverse sm:flex-row justify-between sm:items-center'
+			id='social-actions'
+		>
+			<div className='flex justify-start space-x-4 w-full sm:w-auto sm:order-first'>
 				<a
 					href={tweetUrl}
 					target='_blank'
 					rel='noopener noreferrer'
-					className='h-10 w-10 mr-2 flex items-center justify-center transition-all duration-500 transform hover:opacity-90'
+					className='h-10 w-10 flex items-center justify-center transition-all duration-500 transform hover:opacity-90'
 					id='tweet-quote'
 					style={{ backgroundColor: color }}
 				>
@@ -30,16 +33,17 @@ function QuoteActions({ onNewQuote, currentQuote, currentAuthor, color }) {
 					href={tumblrUrl}
 					target='_blank'
 					rel='noopener noreferrer'
-					className='h-10 w-10 mr-2 flex items-center justify-center transition-all duration-500 transform hover:opacity-90'
+					className='h-10 w-10 flex items-center justify-center transition-all duration-500 transform hover:opacity-90'
 					id='tumblr-quote'
 					style={{ backgroundColor: color }}
 				>
 					<PiTumblrLogoThin className='text-white text-2xl' />
 				</a>
 			</div>
+
 			<button
 				onClick={onNewQuote}
-				className='text-white px-4 py-2 rounded cursor-pointer transition-all duration-500 transform hover:opacity-90'
+				className='text-white px-3 py-3 rounded cursor-pointer w-full sm:w-auto transition-all duration-500 transform hover:opacity-90 mb-4 sm:mb-0 sm:order-last'
 				id='new-quote'
 				style={{ backgroundColor: color }}
 			>

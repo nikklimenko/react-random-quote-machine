@@ -4,3 +4,18 @@
 	padding: 2rem;
 	text-align: center;
 }
+
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+}
+
+@media (max-width: 768px) {
+	#root {
+		padding: 2px;
+	}
+	body {
+		overflow-y: auto;
+	}
+}
