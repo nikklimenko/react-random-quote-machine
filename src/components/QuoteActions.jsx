@@ -11,7 +11,7 @@ function QuoteActions({ onNewQuote, currentQuote, currentAuthor, color }) {
 		currentAuthor
 	)}&content=${encodeURIComponent(
 		currentQuote
-	)}§ion=content&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button`
+	)}&section=content&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button`
 
 	return (
 		<div className='flex justify-between' id='social-actions'>
